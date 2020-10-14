@@ -1,8 +1,9 @@
-import 'package:btn_bar/provider/task.dart';
-import 'package:btn_bar/widgets/list_item.dart';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:trip_buddy/provider/task.dart';
+
+import 'list_item.dart';
 
 class List extends StatelessWidget {
   @override

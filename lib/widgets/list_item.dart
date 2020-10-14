@@ -1,8 +1,10 @@
-import 'package:btn_bar/provider/task.dart';
-import 'package:btn_bar/widgets/item_text.dart';
+
+import 'package:trip_buddy/provider/task.dart';
 import 'add_new_task.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'item_text.dart';
 
 class ListItem extends StatefulWidget {
   final Task task;

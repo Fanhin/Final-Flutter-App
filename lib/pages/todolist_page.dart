@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:btn_bar/widgets/list.dart';
+import 'package:trip_buddy/widgets/list.dart';
 
 class TodolistPage extends StatefulWidget {
   @override
