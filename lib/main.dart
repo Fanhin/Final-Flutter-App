@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:trip_buddy/screens/feature_page.dart';
-import 'package:trip_buddy/screens/home_page.dart';
+import 'package:trip_buddy/pages/feature_page.dart';
+import 'package:trip_buddy/pages/home_page.dart';
 
 void main() {
   runApp(MyApp());

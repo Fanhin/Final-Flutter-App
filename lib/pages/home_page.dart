@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trip_buddy/screens/trip.dart';
+import 'package:trip_buddy/pages/trip.dart';
 
 
 
