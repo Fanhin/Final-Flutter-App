@@ -18,7 +18,7 @@ class _TimelinePageState extends State<TimelinePage> {
         title: Text("Timeline Page"),
       ),
       body: ListView.builder(
-          itemCount: 2,
+          itemCount: 5,
           itemBuilder: (context, index) {
             return TimelineTile(
               alignment: TimelineAlign.manual,
@@ -30,6 +30,9 @@ class _TimelinePageState extends State<TimelinePage> {
               startChild: Container(
                 child: BlocBuilder<TimelineCubit, List>(
                   builder: (context, state) {
+
+
+                    
                     return Text("$state");
                   },
                 ),
