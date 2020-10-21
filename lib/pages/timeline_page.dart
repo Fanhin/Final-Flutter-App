@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:timeline_tile/timeline_tile.dart';
+import 'package:trip_buddy/provider/activity.dart';
 
 import '../TimelineCubit.dart';
 
@@ -30,10 +31,7 @@ class _TimelinePageState extends State<TimelinePage> {
               startChild: Container(
                 child: BlocBuilder<TimelineCubit, List>(
                   builder: (context, state) {
-
-
-                    
-                    return Text("$state");
+                    return new Column(children: state.map((item) => new Text(item.time)).toList());
                   },
                 ),
                 color: Colors.amberAccent,
@@ -42,9 +40,10 @@ class _TimelinePageState extends State<TimelinePage> {
           }),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.remove),
-        onPressed: () => {
-          context.bloc<TimelineCubit>().addTimeline("KU"),
-          this.setState(() {})
+        onPressed: () {
+          setState(() {
+            context.bloc<TimelineCubit>().addTimeline(Activity("asdf"));
+          });
         },
       ),
     );

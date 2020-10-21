@@ -3,13 +3,9 @@ import 'package:trip_buddy/widgets/add_new_task.dart';
 import 'timeline_page.dart';
 import 'todolist_page.dart';
 
-
-
 class HomePage extends StatefulWidget {
   @override
-  _HomePageState createState()=>_HomePageState();
-  
-  
+  _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
@@ -41,11 +37,13 @@ class _HomePageState extends State<HomePage> {
         child: Icon(Icons.add),
         backgroundColor: Colors.orangeAccent,
         onPressed: () {
-          showModalBottomSheet(
-            context: context,
-            builder: (_) => AddNewTask(isEditMode: false),
-          );
-          
+          if (currentTab == 0) {
+          } else {
+            showModalBottomSheet(
+              context: context,
+              builder: (_) => AddNewTask(isEditMode: false),
+            );
+          }
         },
       ),
 
