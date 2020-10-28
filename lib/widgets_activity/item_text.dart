@@ -3,16 +3,18 @@ import 'package:intl/intl.dart';
 
 class ItemText extends StatelessWidget {
   final bool check;
-  final String text;
+  final String textActivityTitle;
+  final String textDescription;
   final DateTime dueDate;
   final TimeOfDay dueTime;
 
-  ItemText(
+  ItemText({
     this.check,
-    this.text,
+    this.textActivityTitle,
+    this.textDescription,
     this.dueDate,
     this.dueTime,
-  );
+  });
 
   Widget _buildDateText(BuildContext context) {
     return Text(
@@ -41,11 +43,10 @@ class ItemText extends StatelessWidget {
       return _buildDateText(context);
     } else if (dueDate != null && dueTime != null) {
       return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           _buildDateText(context),
           SizedBox(
-            width: 10,
+            width: 20,
           ),
           _buildTimeText(context),
         ],
@@ -59,36 +60,48 @@ class ItemText extends StatelessWidget {
     return _buildText(context);
   }
 
+ 
+
   Widget _buildText(BuildContext context) {
-    if (check) {
-      return Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            text,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(
-                fontSize: 22,
-                color: Colors.grey,
-                decoration: TextDecoration.lineThrough),
-          ),
-          _buildDateTimeTexts(context),
-        ],
-      );
-    }
+    
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+     
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text(
-          text,
-          overflow: TextOverflow.ellipsis,
-          style: TextStyle(
-            fontSize: 22,
+        Container(
+          margin: EdgeInsets.fromLTRB(10, 20, 0, 0),
+          child: Row(
+            children: <Widget>[
+              Container(),
+              Container(
+                width: 200,
+                margin: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                child: Text(
+                  
+                  textActivityTitle,
+                  maxLines: 20,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
-        _buildDateTimeTexts(context),
+        Container(
+          margin: EdgeInsets.fromLTRB(25, 5, 5, 10),
+          child: Text(
+            textDescription,
+            maxLines: 15,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              fontSize: 16,
+            ),
+          ),
+        ),
+       
       ],
     );
   }

@@ -1,11 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:trip_buddy/provider/task.dart';
 
 class AddNewTask extends StatefulWidget {
-
   final String id;
   final bool isEditMode;
 
@@ -19,14 +17,13 @@ class AddNewTask extends StatefulWidget {
 }
 
 class _AddNewTaskState extends State<AddNewTask> {
-
   Task task;
   TimeOfDay _selectedTime;
   DateTime _selectedDate;
   String _inputDescription;
   final _formKey = GlobalKey<FormState>();
 
-   void _pickUserDueDate() {
+  void _pickUserDueDate() {
     showDatePicker(
             context: context,
             initialDate: widget.isEditMode ? _selectedDate : DateTime.now(),
@@ -45,6 +42,7 @@ class _AddNewTaskState extends State<AddNewTask> {
 
   void _pickUserDueTime() {
     showTimePicker(
+      
       context: context,
       initialTime: widget.isEditMode ? _selectedTime : TimeOfDay.now(),
     ).then((time) {
@@ -98,7 +96,6 @@ class _AddNewTaskState extends State<AddNewTask> {
     super.initState();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -108,11 +105,17 @@ class _AddNewTaskState extends State<AddNewTask> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text('Title', style: Theme.of(context).textTheme.subtitle),
+            //Text('Title', style: Theme.of(context).textTheme.subtitle),
             TextFormField(
               initialValue:
                   _inputDescription == null ? null : _inputDescription,
               decoration: InputDecoration(
+                labelText: "Title",
+                fillColor: Colors.white,
+                border: new OutlineInputBorder(
+                  borderRadius: new BorderRadius.circular(25.0),
+                  borderSide: new BorderSide(),
+                ),
                 hintText: 'Describe your task',
               ),
               validator: (value) {
@@ -128,13 +131,19 @@ class _AddNewTaskState extends State<AddNewTask> {
             SizedBox(
               height: 20,
             ),
-            Text('Due date', style: Theme.of(context).textTheme.subtitle),
+            //Text('Due date', style: Theme.of(context).textTheme.subtitle),
             TextFormField(
               onTap: () {
                 _pickUserDueDate();
               },
               readOnly: true,
               decoration: InputDecoration(
+                labelText: "Due date",
+                fillColor: Colors.white,
+                border: new OutlineInputBorder(
+                  borderRadius: new BorderRadius.circular(25.0),
+                  borderSide: new BorderSide(),
+                ),
                 hintText: _selectedDate == null
                     ? 'Provide your due date'
                     : DateFormat.yMMMd().format(_selectedDate).toString(),
@@ -143,13 +152,19 @@ class _AddNewTaskState extends State<AddNewTask> {
             SizedBox(
               height: 20,
             ),
-            Text('Due time', style: Theme.of(context).textTheme.subtitle),
+            //Text('Due time', style: Theme.of(context).textTheme.subtitle),
             TextFormField(
               onTap: () {
                 _pickUserDueTime();
               },
               readOnly: true,
               decoration: InputDecoration(
+                labelText: "Due time",
+                fillColor: Colors.white,
+                border: new OutlineInputBorder(
+                  borderRadius: new BorderRadius.circular(25.0),
+                  borderSide: new BorderSide(),
+                ),
                 hintText: _selectedTime == null
                     ? 'Provide your due time'
                     : _selectedTime.format(context),

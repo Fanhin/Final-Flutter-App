@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trip_buddy/widgets/add_new_task.dart';
+import 'package:trip_buddy/widgets_activity/add_new_activity.dart';
 import 'timeline_page.dart';
 import 'todolist_page.dart';
 
@@ -27,6 +28,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
+      resizeToAvoidBottomPadding: false,
+      resizeToAvoidBottomInset: false,
       body: PageStorage(
         bucket: bucket,
         child: currentScreen,
@@ -38,6 +42,12 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.orangeAccent,
         onPressed: () {
           if (currentTab == 0) {
+            showModalBottomSheet(
+              isScrollControlled: true,
+              context: context,
+              builder: (_) => AddNewActivity(isEditMode: false),
+            );
+
           } else {
             showModalBottomSheet(
               context: context,

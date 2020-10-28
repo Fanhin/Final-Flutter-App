@@ -64,7 +64,7 @@ class TaskProvider with ChangeNotifier {
   void changeStatus(String id) {
     int index = _todoList.indexWhere((task) => task.id == id);
     _todoList[index].isDone = !_todoList[index].isDone;
-    print('PROVIDER ${_todoList[index].isDone.toString()}');
+    
   }
 
   
